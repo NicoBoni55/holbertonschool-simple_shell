@@ -4,7 +4,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void print_PID(void);
+void print_pid(void);
 
 #endif
