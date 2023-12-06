@@ -15,6 +15,11 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-msvc-x64"
+            "browse": {
+                "path": ["${workspacefolder}"],
+                "limitsymbolstoincludedheaders": true,
+                "databasefilename": ""
+            }
         }
     ],
     "version": 4
