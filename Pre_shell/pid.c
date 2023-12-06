@@ -1,11 +1,11 @@
 #include "pre_shell.h"
 
 /**
- * main - PID
+ * pid - PID
  *
  * Return: Always 0.
  */
-int main(void)
+int pid(void)
 {
     pid_t my_pid;
 

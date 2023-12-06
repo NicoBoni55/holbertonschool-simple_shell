@@ -8,5 +8,6 @@
 #include <string.h>
 
 void print_pid(void);
+int pid(void);
 
 #endif
