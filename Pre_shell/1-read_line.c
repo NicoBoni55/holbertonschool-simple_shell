@@ -18,7 +18,7 @@ int main(void)
 			perror("getline");
 			exit(EXIT_FAILURE);
 		}
-		printf("%s\n", buffer);
+		printf("%s", buffer);
 		buffer[n - 1] = '\0';
 	}
 	return (0);
