@@ -13,11 +13,12 @@ int main(void)
 	{
 		write(1, "$ ", 2);
 		n = getline(&buffer, &size, stdin);
-		if (n == -1)
+		if (n == EOF)
 		{
 			perror("getline");
 			exit(EXIT_FAILURE);
 		}
+		printf("%s", buffer);
 		buffer[n - 1] = '\0';
 	}
 	return (0);
