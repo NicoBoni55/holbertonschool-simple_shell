@@ -6,7 +6,7 @@
 int main(int argc, char **argv)
 {
     char string[] = "el mejor tokenizador del lejano holberton de Uruguay";
-    char del = " ";
+    char del[] = " ";
     char *token;
 
     (void)argc;
