@@ -18,6 +18,7 @@ int main(void)
 			perror("getline");
 			exit(EXIT_FAILURE);
 		}
+		buffer[n - 1] = '\0';
 	}
 	return (0);
 }
