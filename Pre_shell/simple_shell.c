@@ -10,7 +10,7 @@ void execc(char *inp)
 	pid_t pid;
 	char *token;
 	char *args[1024];
-	int i, state;
+	int i = 0, state;
 
 	pid = fork();
 	if (pid == -1)
@@ -21,7 +21,7 @@ void execc(char *inp)
 	else if (pid == 0)
 	{
 		token = strtok(inp, " ");
-		while (token)
+		while (token != NULL && i < sizeof(args) / sizeof(args[0]) - 1)
 		{
 			args[i++] = token;
 			token = strtok(NULL, " ");
@@ -42,7 +42,6 @@ int main()
 	{
 		printf("Michelle ");
 		fgets(inp, sizeof(inp), stdin);
-
 		inp[strcspn(inp, "\n")] = '\0';
 		if (strncmp(inp, "exit", 4) == 0)
 			break;
