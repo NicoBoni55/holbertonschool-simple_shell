@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdio.h>
 /**
  * pid_wait - wait for PID
  *

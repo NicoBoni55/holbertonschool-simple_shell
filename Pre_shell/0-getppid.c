@@ -4,7 +4,7 @@
 /**
 * print_PID - print the ID of the parent process
 */
-void print_PID(void)
+void main(void)
 {
     pid_t pid, ppid;
 
