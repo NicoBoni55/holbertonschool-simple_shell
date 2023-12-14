@@ -28,7 +28,7 @@ void execc(char *inp)
 		}
 		args[i] = NULL;
 		execvp(args[0], args);
-		perror("execvp");
+		perror("execvei");
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -46,17 +46,17 @@ int main(void)
 
 	while (1)
 	{
-		write(1, "#cisfun$ ", 9);
+		write(1, "$ ", 2);
 		n = getline(&command, &size, stdin);
 
 		if (n == EOF)
 		{
 			printf("\n");
-			exit(EXIT_FAILURE);
+			exit(EXIT_SUCCESS);
 		}
 		if (strncmp(command, "exit", 4)  == 0)
 		{
-			exit(EXIT_FAILURE);
+			exit(EXIT_SUCCESS);
 		}
 		command[strcspn(command, "\n")] = '\0';
 		execc(command);
