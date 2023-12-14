@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "pre_shell.h": "c"
+        "pre_shell.h": "c",
+        "stdlib.h": "c"
     }
 }
