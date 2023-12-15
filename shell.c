@@ -24,6 +24,7 @@ int main(void)
 		}
 		if (strncmp(command, "exit", 4)  == 0)
 		{
+			free(command);
 			exit(EXIT_SUCCESS);
 		}
 		command[strcspn(command, "\n")] = '\0';

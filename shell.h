@@ -8,8 +8,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-extern char **environ;
 void execc(char *inp);
+extern char **environ;
 int main(void);
 
 #endif
