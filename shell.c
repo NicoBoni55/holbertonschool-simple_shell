@@ -7,7 +7,7 @@ int main(void)
 {
 	char *command = NULL;
 	size_t size = 0;
-	int n;
+	int n, file_;
 
 	while (1)
 	{
@@ -16,6 +16,16 @@ int main(void)
 		write(1, "#cisfun$ ", 9);
 		n = getline(&command, &size, stdin);
 		}
+		else
+		{
+			file_ = open(command, O_RDONLY);
+		}
+			if (file_ == -1)
+			{
+				perror("Error");
+				return (1);
+			}
+		close(file_);
 
 		if (n == EOF)
 		{
@@ -29,6 +39,6 @@ int main(void)
 		}
 		command[strcspn(command, "\n")] = '\0';
 		execc(command);
-	}
+		}
 	return (0);
 }

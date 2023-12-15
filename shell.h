@@ -5,12 +5,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 void execc(char *inp);
 extern char **environ;
-int env_(const char *envir);
+char *env_(const char *envir);
 int main(void);
 
 #endif
