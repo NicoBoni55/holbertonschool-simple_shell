@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 void execc(char *inp);
 extern char **environ;
+int env_(const char *envir);
 int main(void);
 
 #endif
