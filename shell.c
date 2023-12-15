@@ -1,40 +1,5 @@
 #include "shell.h"
 /**
- *execc - execute shell commands
- *@inp : input
- *
- *Return: zero
- */
-void execc(char *inp)
-{
-	pid_t pid;
-	char *token;
-	char *args[1024];
-	int i = 0, state;
-
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
-	else if (pid == 0)
-	{
-		token = strtok(inp, " ");
-		while (token != NULL && i < sizeof(args) / sizeof(args[0]) - 1)
-		{
-			args[i++] = token;
-			token = strtok(NULL, " ");
-		}
-		args[i] = NULL;
-		execvp(args[0], args);
-		perror("execvei");
-		exit(EXIT_FAILURE);
-	}
-	else
-		waitpid(pid, &state, 0);
-}
-/**
  *main - shell proyect
  *Return: zero
  */
@@ -46,8 +11,11 @@ int main(void)
 
 	while (1)
 	{
-		write(1, "$ ", 2);
+		if (isatty(STDIN_FILENO))
+		{
+		write(1, "#cisfun$ ", 9);
 		n = getline(&command, &size, stdin);
+		}
 
 		if (n == EOF)
 		{
