@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 void execc(char *inp);
 extern char **environ;
-char *env_(const char *envir);
+void env_();
 int main(void);
 
 #endif

@@ -1,24 +1,14 @@
 #include "shell.h"
 
+extern char **environ;
 
-char *env_(const char *envir) {
+void env_() 
+{
     int i = 0;
-    char *cpy, *tok, *value;
 
-    while (environ[i]) 
+    while (environ[i] != NULL) 
     {
-        cpy = strdup(environ[i]);
-        tok = strtok(cpy, "=");
-
-        if (strcmp(envir, tok) == 0) 
-	{
-            value = strdup(strtok(NULL, "\n"));
-	    free(cpy);
-	    return (value);
-        }
-        
-        free(cpy);
+	printf("%s\n", environ[i]);
         i++;
     } 
-    return (NULL);
 }

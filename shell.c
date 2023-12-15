@@ -37,7 +37,6 @@ int main(void)
 			free(command);
 			exit(EXIT_SUCCESS);
 		}
-		free(command);
 		command[strcspn(command, "\n")] = '\0';
 		execc(command);
 		}
