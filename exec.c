@@ -11,7 +11,7 @@ void execc(char *inp)
 	pid_t pid;
 	char *token;
 	char *args[1024];
-	size_t i = 0; 
+	size_t i = 0;
 	int state;
 	char *env[] = {NULL};
 

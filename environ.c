@@ -1,14 +1,16 @@
 #include "shell.h"
-
-extern char **environ;
-
-void env_() 
+/**
+ *env_ - environ shell commands
+ *
+ *Return: noting
+ */
+void env_(void)
 {
-    int i = 0;
+	int i = 0;
 
-    while (environ[i] != NULL) 
-    {
-	printf("%s\n", environ[i]);
-        i++;
-    } 
+	while (environ[i] != NULL)
+	{
+		printf("%s\n", environ[i]);
+		i++;
+	}
 }
