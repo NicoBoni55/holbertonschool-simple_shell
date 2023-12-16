@@ -12,6 +12,7 @@
 void execc(char *inp);
 extern char **environ;
 void env_(void);
+void internal_command(char *command);
 int main(void);
 
 #endif
