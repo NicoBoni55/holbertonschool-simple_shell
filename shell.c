@@ -13,8 +13,8 @@ int main(void)
 	{
 		if (isatty(STDIN_FILENO))
 		{
-		write(1, "#cisfun$ ", 9);
-		n = getline(&command, &size, stdin);
+			write(1, "#cisfun$ ", 9);
+			n = getline(&command, &size, stdin);
 		}
 
 		if (n == EOF)
@@ -27,10 +27,10 @@ int main(void)
 			free(command);
 			exit(EXIT_SUCCESS);
 		}
-		 else if (strncmp(command, "env", 3) == 0)
-        	{
-            		env_();
-        	}
+		else if (strncmp(command, "env", 3) == 0)
+		{
+			env_();
+		}
 		else
 		{
 		command[strcspn(command, "\n")] = '\0';
