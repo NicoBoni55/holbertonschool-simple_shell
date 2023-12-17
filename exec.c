@@ -61,6 +61,5 @@ void execc(char *inp)
 	else
 	{
 		waitpid(pid, &state, 0);
-		free(inp);
 	}
 }
