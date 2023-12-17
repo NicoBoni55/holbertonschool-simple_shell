@@ -12,18 +12,10 @@ void execc(char *inp)
 	char *token;
 	char *args[500];
 	size_t i = 0;
-	int pipe_fd[2];
-	ssize_t bytes_read;
-	char buffer[1024];
 	int state;
 	char *env[] = {NULL};
 	char *inter_commands[] = {"exit", "env"};
 
-	if (pipe(pipe_fd) == -1)
-	{
-		perror("pipe");
-		exit(EXIT_FAILURE);
-	}
 	pid = fork();
 	if (pid == -1)
 	{
@@ -32,8 +24,6 @@ void execc(char *inp)
 	}
 	else if (pid == 0)
 	{
-		close(pipe_fd[0]);
-		dup2(pipe_fd[1], STDOUT_FILENO);
 
 		token = strtok(inp, " ");
 		while (token != NULL && i < sizeof(args) / sizeof(args[0]) - 1)
@@ -61,15 +51,6 @@ void execc(char *inp)
 	}
 	else
 	{
-		close(pipe_fd[1]);
 		waitpid(pid, &state, 0);
-		bytes_read = read(pipe_fd[0], buffer, sizeof(buffer));
-
-		if (bytes_read > 0)
-		{
-			write(1, buffer, bytes_read);
-		}
-		env_();
-		close(pipe_fd[0]);
 	}
 }
