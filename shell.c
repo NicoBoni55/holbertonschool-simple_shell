@@ -19,7 +19,6 @@ int main(void)
 
 		if (n == EOF)
 		{
-			printf("\n");
 			free(command);
 			exit(EXIT_SUCCESS);
 		}
