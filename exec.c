@@ -42,6 +42,15 @@ void execc(char *inp)
 				exit(EXIT_SUCCESS);
 			}
 		}
+		if (strchr(args[0], '/') == NULL)
+		{
+
+			sprintf(str, "/bin/%s", args[0]);
+		}
+		else
+		{
+			sprintf(str, "%s", args[0]);
+		}
 		execve(str, args, env);
 		execve(args[0], args, env);
 
