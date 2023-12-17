@@ -14,8 +14,8 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 		{
 			write(1, "#cisfun$ ", 9);
-			n = getline(&command, &size, stdin);
 		}
+		n = getline(&command, &size, stdin);
 
 		if (n == EOF)
 		{
