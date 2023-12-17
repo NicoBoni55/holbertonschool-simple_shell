@@ -36,15 +36,18 @@ void execc(char *inp)
 		{
 			if (strcmp(args[0], inter_commands[i]) == 0)
 			{
+				free(inp)
 				internal_command(args[0]);
 				exit(EXIT_SUCCESS);
 			}
 		}
-		execve(str, args, env);
-		execve(args[0], args, env);
-
+		sprintf(str, "/bin/%s", args[0]);
+		if (execve(str, args, env) == -1)
+		{
 		perror("Not found");
+		free(inp);
 		exit(EXIT_FAILURE);
+	}
 	}
 	else
 	{

@@ -20,6 +20,7 @@ int main(void)
 		if (n == EOF)
 		{
 			printf("\n");
+			free(command);
 			exit(EXIT_SUCCESS);
 		}
 		if (strncmp(command, "exit", 4)  == 0)
