@@ -14,5 +14,6 @@ extern char **environ;
 void env_(void);
 void internal_command(char *command);
 int main(void);
+void commandPath(char *command, char *path);
 
 #endif

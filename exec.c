@@ -7,14 +7,11 @@
  */
 void execc(char *inp)
 {
-	char str[100];
+	char str[100], *token, *args[500];
 	pid_t pid;
-	char *token;
-	char *args[500];
 	size_t i = 0;
 	int state;
-	char *env[] = {NULL};
-	char *inter_commands[] = {"exit", "env"};
+	char *inter_commands[] = {"exit", "env"}, *env[] = {NULL};
 
 	pid = fork();
 	if (pid == -1)
@@ -24,7 +21,6 @@ void execc(char *inp)
 	}
 	else if (pid == 0)
 	{
-
 		token = strtok(inp, " ");
 		while (token != NULL && i < sizeof(args) / sizeof(args[0]) - 1)
 		{
@@ -32,7 +28,6 @@ void execc(char *inp)
 			token = strtok(NULL, " ");
 		}
 		args[i] = NULL;
-
 		for (i = 0; i < sizeof(inter_commands) / sizeof(inter_commands[0]); i++)
 		{
 			if (strcmp(args[0], inter_commands[i]) == 0)
@@ -42,19 +37,9 @@ void execc(char *inp)
 				exit(EXIT_SUCCESS);
 			}
 		}
-		if (strchr(args[0], '/') == NULL)
-		{
-
-			sprintf(str, "/bin/%s", args[0]);
-		}
-		else
-		{
-			sprintf(str, "%s", args[0]);
-		}
+		commandPath(inp, str);
 		execve(str, args, env);
 		execve(args[0], args, env);
-
-		perror("Not found");
 		free(inp);
 		exit(EXIT_FAILURE);
 	}
