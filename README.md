@@ -1,7 +1,7 @@
 <div align="center">
     <h1>Simple Shell Project</h1>
 </div>
-![Example Image](https://camo.githubusercontent.com/277f6d7ab7b492354e292073d5268b93140f046f399f2bb226304e9cbd0dd29b/68747470733a2f2f692e696d6775722e636f6d2f687a31587854782e706e67)
+
 A simple UNIX command interpreter.
 
 ## Description:
@@ -11,17 +11,52 @@ is a simple UNIX command language interpreter that reads commands from either a 
 ## Install shell:
 
 ```
+git clone https://github.com/NicoBoni55/holbertonschool-simple_shell.git
+```
+
+### Compilation
+
+```
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ./hsh
 ```
 Non-interactively mode is a standard input not connected to a terminal, it reads and executes received commands in order.
 
-Example:
+## Testing
+in interactive mode:
+```
+$ ./hsh
+(#cisfun$ ) /bin/ls
+AUTHORS  Pre_shell  README.md  environ.c  exec.c  hsh  int_command.c  shell.c  shell.h
+(#cisfun$)
+(#cisfun$) exit
+$
+```
+in non-interactive mode:
 ```
 $ echo "/bin/ls" | ./hsh
 AUTHORS  Pre_shell  README.md  environ.c  exec.c  hsh  int_command.c  shell.c  shell.h
 $
 ```
+
+##General
+
+* Who designed and implemented the original Unix operating system
+* Who wrote the first version of the UNIX shell
+* Who invented the B programming language (the direct predecessor to the C programming language)
+* Who is Ken Thompson
+* How does a shell work
+* What is a pid and a ppid
+* How to manipulate the environment of the current process
+* What is the difference between a function and a system call
+* How to create processes
+* What are the three prototypes of main
+* How does the shell use the PATH to find the programs
+* How to execute another program with the execve system call
+* How to suspend the execution of a process until one of its children terminates
+* What is EOF / “end-of-file”?
+
+
 ## List of allowed functions and system calls+:
 
 all functions from string.h
@@ -65,8 +100,3 @@ all functions from string.h
 ## Authors :black_nib:
 
 * Nicolas Bonilla <[NicoBoni55](https://github.com/NicoBoni55)>
-
-## License :lock:
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
