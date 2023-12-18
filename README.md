@@ -39,7 +39,7 @@ AUTHORS  Pre_shell  README.md  environ.c  exec.c  hsh  int_command.c  shell.c  s
 $
 ```
 
-##General
+## General
 
 * Who designed and implemented the original Unix operating system
 * Who wrote the first version of the UNIX shell
