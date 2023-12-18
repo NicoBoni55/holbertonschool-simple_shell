@@ -1,14 +1,12 @@
 <div align="center">
     <h1>Simple Shell Project</h1>
 </div>
-# Simple Shell:
-
+![Example Image](https://camo.githubusercontent.com/277f6d7ab7b492354e292073d5268b93140f046f399f2bb226304e9cbd0dd29b/68747470733a2f2f692e696d6775722e636f6d2f687a31587854782e706e67)
 A simple UNIX command interpreter.
 
 ## Description:
 
 is a simple UNIX command language interpreter that reads commands from either a file or standard input and executes them.
-
 
 ## Install shell:
 
@@ -16,7 +14,6 @@ is a simple UNIX command language interpreter that reads commands from either a 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ./hsh
 ```
-
 Non-interactively mode is a standard input not connected to a terminal, it reads and executes received commands in order.
 
 Example:
@@ -26,6 +23,7 @@ AUTHORS  Pre_shell  README.md  environ.c  exec.c  hsh  int_command.c  shell.c  s
 $
 ```
 ## List of allowed functions and system calls+:
+
 all functions from string.h
 * access (man 2 access)
 * chdir (man 2 chdir)
@@ -72,8 +70,3 @@ all functions from string.h
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-## Acknowledgements :pray:
-
-<p align="center">
-  <img src="http://www.holbertonschool.com/holberton-logo.png" alt="Holberton School logo">
-</p>
