@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <stdlib.h>
-
+#include "shell.h"
 int main(void)
 {
 	char *shell;
@@ -13,7 +8,7 @@ int main(void)
 	{
 		printf("$shellatina ");
 		getline(&shell, &size, stdin);
-		printf("%s", shell);
+		_fork();
 	}
 	free(shell);
 	return (0);
