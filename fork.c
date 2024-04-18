@@ -1,7 +1,7 @@
 #include "shell.h"
 int _fork()
 {
-	char *argv[] = {"#!/bin/", NULL};
+	char *argv[] = {"/bin/ls", NULL};
 	int shell;
 	pid_t pid;
 
