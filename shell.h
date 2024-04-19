@@ -7,3 +7,4 @@
 
 int _fork();
 int _execve(const char *file, const char *argv, const char *envp);
+int tokens_(char *s1);

@@ -8,6 +8,7 @@ int main(void)
 	{
 		printf("$shellatina ");
 		getline(&shell, &size, stdin);
+		tokens_(shell);
 		_fork();
 	}
 	free(shell);

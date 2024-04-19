@@ -1,20 +1,46 @@
 #include "shell.h"
-int main()
+int tokens_(char *s1)
 {
-	char *s1 = "hola como estas hoy";
 	char *dup;
-	int i;
-	char *buff;
+	char **array;
 	char *token;
+	int count = 0;
 
 	dup = strdup(s1);
 	token = strtok(dup, " ");
-	printf("llega\n");
-	buff = malloc(sizeof(char *));
+	/* GET LEN */
 	while (token)
 	{
-		if (token)
-			printf("%s\n", token);
+		token = strtok(NULL, " ");
+		count++;
+	}
+	array = malloc(sizeof(char *) * (count + 1));
+
+	if (array == NULL)
+	{
+		perror("Error! memory not allocated.");
+		free(array);
+		exit(-1);
+	}
+	printf("count es %d\n", count);
+	free(dup);
+	dup = strdup(s1);
+	token = strtok(dup, " ");
+	count = 0;
+	/* INSERT TOKENS */
+	while (token)
+	{
+		array[count++] = strdup(token);
 		token = strtok(NULL, " ");
 	}
+	array[count] = NULL;
+
+	/* CHECK IF IT WORKS THEN FREES */
+	for (count = 0; array[count]; count++)
+	{
+		printf("%s\n", array[count]);
+		free(array[count]);
+	}
+	free(dup);
+	free(array);		
 }	

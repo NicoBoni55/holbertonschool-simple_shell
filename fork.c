@@ -1,8 +1,8 @@
 #include "shell.h"
+extern char **environ;
 int _fork()
 {
 	char *argv[] = {"/bin/ls", NULL};
-	int shell;
 	pid_t pid;
 
 	pid = fork();
@@ -12,8 +12,8 @@ int _fork()
 
 	if (pid == 0)
 	{
-		execve(argv[0], argv, NULL);
+		execve(argv[0], argv, environ);
 	}
-	wait(&shell);
+	wait(&pid);
 	return (0);
 }
