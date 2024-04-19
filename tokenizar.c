@@ -22,7 +22,6 @@ int tokens_(char *s1)
 		free(array);
 		exit(-1);
 	}
-	printf("count es %d\n", count);
 	free(dup);
 	dup = strdup(s1);
 	token = strtok(dup, " ");
