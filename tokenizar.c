@@ -1,14 +1,20 @@
 #include "shell.h"
-int main(char *str, const char *str2)
+int main()
 {
-	char s1[] = "hola como estas hoy";
+	char *s1 = "hola como estas hoy";
+	char *dup;
 	int i;
+	char *buff;
 	char *token;
 
-	token = strtok(s1, " ");
-
-	for (i = 0; i < strlen(s1); i++)
+	dup = strdup(s1);
+	token = strtok(dup, " ");
+	printf("llega\n");
+	buff = malloc(sizeof(char *));
+	while (token)
 	{
-		printf("%s\n", token);
+		if (token)
+			printf("%s\n", token);
+		token = strtok(NULL, " ");
 	}
 }	
