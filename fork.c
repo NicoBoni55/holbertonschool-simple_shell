@@ -22,7 +22,16 @@ char *get_env(const char *name)
 {
 	extern char **environ;
 	int i;
+	char *token;
 
-	while (environ[i])
+	for (i = 0; environ[i]; i++)
 	{
-		tokens_
+		token = tokens_(environ[i], "=")
+		if (strcmp(token, name) == 0)
+		{
+			print("%s\n", token);
+			return (tokens_(NULL, "="));
+		}
+	}
+	return (NULL);
+}
