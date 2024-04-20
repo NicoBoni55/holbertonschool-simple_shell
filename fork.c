@@ -1,5 +1,4 @@
 #include "shell.h"
-extern char **environ;
 int _fork()
 {
 	char *argv[] = {"/bin/ls", NULL};
@@ -17,3 +16,13 @@ int _fork()
 	wait(&pid);
 	return (0);
 }
+
+#include "shell.h"
+char *get_env(const char *name)
+{
+	extern char **environ;
+	int i;
+
+	while (environ[i])
+	{
+		tokens_

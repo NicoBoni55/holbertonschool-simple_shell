@@ -37,9 +37,9 @@ int tokens_(char *s1)
 	/* CHECK IF IT WORKS THEN FREES */
 	for (count = 0; array[count]; count++)
 	{
-		printf("%s\n", array[count]);
 		free(array[count]);
 	}
 	free(dup);
-	free(array);		
+	free(array);
+	return (0);	
 }	

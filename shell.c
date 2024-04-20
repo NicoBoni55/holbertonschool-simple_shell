@@ -11,11 +11,13 @@ int main(void)
 		getline(&shell, &size, stdin);
 		if (strcmp(shell, "exit\n") == 0)
 		{
-			printf("%s\n", shell);
 			break;
 		}
+		if (strcmp(shell, "ls\n") == 0 || strcmp(shell, "/bin/ls\n") == 0)
+		{
+			_fork();
+		}
 		tokens_(shell);
-		_fork();
 	}
 	free(shell);
 	return (0);
