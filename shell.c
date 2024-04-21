@@ -2,6 +2,7 @@
 int main(void)
 {
 	char *shell;
+	char *path = get_env("PATH");
 	size_t size = 32;
 
 
@@ -17,7 +18,11 @@ int main(void)
 		{
 			_fork();
 		}
-		tokens_(shell);
+		if (strcmp(shell, "printenv\n") == 0)
+		{
+			printf("%s\n", path);
+		}
+		tokens_(shell, " ");
 	}
 	free(shell);
 	return (0);

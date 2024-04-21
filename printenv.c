@@ -15,12 +15,3 @@ char *get_env(const char *name)
         }
 	return (NULL);
 }
-
-int main()
-{
-	char *path = get_env("TERM");
-
-	printf("%s\n", path);
-
-	return (0);
-}

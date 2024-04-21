@@ -1,4 +1,5 @@
 #include "shell.h"
+extern char **environ;
 int _fork()
 {
 	char *argv[] = {"/bin/ls", NULL};
@@ -26,11 +27,10 @@ char *get_env(const char *name)
 
 	for (i = 0; environ[i]; i++)
 	{
-		token = tokens_(environ[i], "=")
+		token = strtok(environ[i], "=");
 		if (strcmp(token, name) == 0)
 		{
-			print("%s\n", token);
-			return (tokens_(NULL, "="));
+			return (strtok(NULL, "="));
 		}
 	}
 	return (NULL);
