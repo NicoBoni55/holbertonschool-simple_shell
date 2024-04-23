@@ -1,4 +1,11 @@
 #include "shell.h"
+/**
+ * tokens_ - tokens
+ * @s1 : string
+ * @delim : delim
+ *
+ * Return: Always 0
+ */
 char *tokens_(char *s1, const char *delim)
 {
 	char *dup;
@@ -9,14 +16,13 @@ char *tokens_(char *s1, const char *delim)
 	delim = " ";
 	dup = strdup(s1);
 	token = strtok(dup, delim);
-	/* GET LEN */
+
 	while (token)
 	{
 		token = strtok(NULL, delim);
 		count++;
 	}
 	array = malloc(sizeof(char *) * (count + 1));
-
 	if (array == NULL)
 	{
 		perror("Error! memory not allocated.");
@@ -27,20 +33,17 @@ char *tokens_(char *s1, const char *delim)
 	dup = strdup(s1);
 	token = strtok(dup, delim);
 	count = 0;
-	/* INSERT TOKENS */
 	while (token)
 	{
 		array[count++] = strdup(token);
 		token = strtok(NULL, delim);
 	}
 	array[count] = NULL;
-
-	/* CHECK IF IT WORKS THEN FREES */
 	for (count = 0; array[count]; count++)
 	{
 		free(array[count]);
 	}
 	free(dup);
 	free(array);
-	return (0);	
-}	
+	return (0);
+}

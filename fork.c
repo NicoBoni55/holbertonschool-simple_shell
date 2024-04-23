@@ -18,7 +18,6 @@ int _fork()
 	return (0);
 }
 
-#include "shell.h"
 char *get_env(const char *name)
 {
 	extern char **environ;
@@ -30,7 +29,7 @@ char *get_env(const char *name)
 		token = strtok(environ[i], "=");
 		if (strcmp(token, name) == 0)
 		{
-			return (strtok(NULL, "="));
+			return(strtok(NULL, "="));
 		}
 	}
 	return (NULL);

@@ -1,10 +1,13 @@
 #include "shell.h"
+/**
+ * main - main
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
 	char *shell;
-	char *path = get_env("PATH");
-	size_t size = 32;
-
+	size_t size = 0;
 
 	while (1)
 	{
@@ -17,10 +20,6 @@ int main(void)
 		if (strcmp(shell, "ls\n") == 0 || strcmp(shell, "/bin/ls\n") == 0)
 		{
 			_fork();
-		}
-		if (strcmp(shell, "printenv\n") == 0)
-		{
-			printf("%s\n", path);
 		}
 		tokens_(shell, " ");
 	}
