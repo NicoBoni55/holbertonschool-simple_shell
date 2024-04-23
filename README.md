@@ -1,6 +1,6 @@
 <center>
 
-# # $ shellatina - Simple Shell :custard: 
+# $ shellatina - Simple Shell :custard: 
 </center>
 
 # What is shell? :shell:
