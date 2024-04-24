@@ -6,20 +6,21 @@
  *
  * Return: Always 0
  */
-char *tokens_(char *s1, const char *delim)
+char **tokenizar(char *s1)
 {
 	char *dup;
 	char **array;
 	char *token;
+	char *delim = " \t";
 	int count = 0;
+	int i = 0, j = 0;
 
 	delim = " ";
 	dup = strdup(s1);
 	token = strtok(dup, delim);
 
-	while (token)
+	while ((token = strtok(NULL, delim)))
 	{
-		token = strtok(NULL, delim);
 		count++;
 	}
 	array = malloc(sizeof(char *) * (count + 1));
@@ -28,22 +29,27 @@ char *tokens_(char *s1, const char *delim)
 		perror("Error! memory not allocated.");
 		free(array);
 		exit(-1);
-	}
+	}	
 	free(dup);
 	dup = strdup(s1);
 	token = strtok(dup, delim);
-	count = 0;
 	while (token)
 	{
-		array[count++] = strdup(token);
+		array[i] = strdup(token);
+		if (!array[i])
+		{
+			for (j = 0; j > i; j++)
+			{
+				free(array[count]);
+				free(dup);
+				free(array);
+				return (NULL);
+			}
+		}
+		i++;
 		token = strtok(NULL, delim);
 	}
-	array[count] = NULL;
-	for (count = 0; array[count]; count++)
-	{
-		free(array[count]);
-	}
+	array[i] = NULL;
 	free(dup);
-	free(array);
-	return (0);
+	return (array);
 }

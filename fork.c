@@ -2,7 +2,7 @@
 extern char **environ;
 int _fork()
 {
-	char *argv[] = {"/bin/ls", NULL};
+	char **arr;
 	pid_t pid;
 
 	pid = fork();

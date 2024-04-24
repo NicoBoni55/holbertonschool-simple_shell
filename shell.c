@@ -7,6 +7,7 @@
 int main(void)
 {
 	char *shell;
+	char **arr;
 	size_t size = 0;
 
 	while (1)
@@ -17,11 +18,15 @@ int main(void)
 		{
 			break;
 		}
-		if (strcmp(shell, "ls\n") == 0 || strcmp(shell, "/bin/ls\n") == 0)
-		{
-			_fork();
-		}
-		tokens_(shell, " ");
+		arr = tokens_(shell);
+		if (pid == -1)
+                	perror("Error :");
+
+		if (pid == 0)
+        	{
+                	execve(arr[0], arr, environ);
+        	}
+        	wait(&pid);
 	}
 	free(shell);
 	return (0);

@@ -8,7 +8,6 @@ int main(void)
 	dup = strdup(direct);
 	token = strtok(dup, ":");
 	printf("%s\n", token);
-
 	while((token = strtok(NULL, ":")))
 	{
 		printf("%s\n", token);
