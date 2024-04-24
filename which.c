@@ -1,19 +1,18 @@
 #include "shell.h"
 int main(void)
 {
-	char *path = get_env("PATH");
-	int i;
-	char *direct;
+	char *direct = get_env("PATH");
+	char *dup;
 	char *token;
 
-	direct = strdup(path);
-	token = strtok(direct, ":");
+	dup = strdup(direct);
+	token = strtok(dup, ":");
 	printf("%s\n", token);
-	for (i = 0; path[i]; i++)
+
+	while((token = strtok(NULL, ":")))
 	{
-		token = strtok(NULL, ":");	
 		printf("%s\n", token);
+		token += 1;
 	}
-	free(direct);
 	return (0);
 }
