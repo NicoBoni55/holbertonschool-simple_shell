@@ -7,7 +7,7 @@
  */
 char *get_env(const char *name)
 {
-	char **environ;
+	extern char **environ;
 	int i;
 	char *token;
 

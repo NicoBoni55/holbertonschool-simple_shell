@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	char **environ;
+	extern char **environ;
 	char *shell = NULL;
 	char **arr;
 	size_t size = 0;

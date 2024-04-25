@@ -7,13 +7,16 @@
  */
 char **tokenizar(char *s1)
 {
-	char *dup, **array, *token, *delim = " \t";
+	char *dup, *token, *delim = " \t";
+	char **array;
 	int count = 0, i = 0, j = 0;
 
 	dup = strdup(s1);
 	token = strtok(dup, delim);
 	while ((token = strtok(NULL, delim)))
+	{
 		count++;
+	}
 	array = malloc(sizeof(char *) * (count + 1));
 	if (array == NULL)
 	{
@@ -27,7 +30,7 @@ char **tokenizar(char *s1)
 	while (token)
 	{
 		array[i] = strdup(token);
-		for (i = 0; !array[i]; i++)
+		if (!array[i])
 		{
 			for (j = 0; j > i; j++)
 			{
@@ -37,9 +40,10 @@ char **tokenizar(char *s1)
 				return (NULL);
 			}
 		}
+		i++;
 		token = strtok(NULL, delim);
 	}
 	array[i] = NULL;
 	free(dup);
 	return (array);
-}
+}	
