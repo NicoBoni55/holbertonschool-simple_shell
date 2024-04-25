@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	extern char **environ;
+	char **environ;
 	char *shell = NULL;
 	char **arr;
 	size_t size = 0;
@@ -26,18 +26,18 @@ int main(void)
 
 		if (strcmp(shell, "exit") == 0)
 		{
-			return(0);
+			return (0);
 			free(shell);
 		}
 		pid = fork();
 		if (pid == -1)
-                	perror("Error :");
+			perror("Error: ");
 
 		if (pid == 0)
-        	{
-                	execve(arr[0], arr, environ);
-        	}
-        	wait(&pid);
+		{
+			execve(arr[0], arr, environ);
+		}
+		wait(&pid);
 	}
 	free(shell);
 	return (0);

@@ -1,7 +1,13 @@
 #include "shell.h"
+/**
+ * get_env - get environ
+ * @name : name path
+ *
+ * Return: path or NULL if fail
+ */
 char *get_env(const char *name)
 {
-	extern char **environ;
+	char **environ;
 	int i;
 	char *token;
 
@@ -10,7 +16,7 @@ char *get_env(const char *name)
 		token = strtok(environ[i], "=");
 		if (strcmp(token, name) == 0)
 		{
-			return(strtok(NULL, "="));
+			return (strtok(NULL, "="));
 		}
 	}
 	return (NULL);

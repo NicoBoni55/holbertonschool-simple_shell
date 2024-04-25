@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <unistd.h>
-
-int main (void)
+/**
+ * main - PPID
+ *
+ * Return: Always 0.
+ */
+int main(void)
 {
 	pid_t my_ppid;
 
