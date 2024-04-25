@@ -14,10 +14,12 @@ int main(void)
 
 	while (1)
 	{
-		printf("$shellatina ");
+		if (isatty(STDIN_FILENO))
+		{
+			printf("$shellatina ");
+		}
 		if (getline(&shell, &size, stdin) == -1)
 		{
-			printf("\n");
 			return (0);
 			free(shell);
 		}

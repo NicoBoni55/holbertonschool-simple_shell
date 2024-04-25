@@ -46,4 +46,4 @@ char **tokenizar(char *s1)
 	array[i] = NULL;
 	free(dup);
 	return (array);
-}	
+}
