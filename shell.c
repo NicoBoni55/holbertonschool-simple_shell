@@ -6,19 +6,30 @@
  */
 int main(void)
 {
-	char *shell;
+	extern char **environ;
+	char *shell = NULL;
 	char **arr;
 	size_t size = 0;
+	pid_t pid;
 
 	while (1)
 	{
 		printf("$shellatina ");
-		getline(&shell, &size, stdin);
-		if (strcmp(shell, "exit\n") == 0)
+		if (getline(&shell, &size, stdin) == -1)
 		{
-			break;
+			printf("\n");
+			return (0);
+			free(shell);
 		}
-		arr = tokens_(shell);
+		shell[strlen(shell) - 1] = '\0';
+		arr = tokenizar(shell);
+
+		if (strcmp(shell, "exit") == 0)
+		{
+			return(0);
+			free(shell);
+		}
+		pid = fork();
 		if (pid == -1)
                 	perror("Error :");
 
