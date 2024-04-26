@@ -10,6 +10,4 @@
 extern char **environ;
 int _execve(const char *file, const char *argv, const char *envp);
 char **tokenizar(char *s1);
-char *get_env(const char *name);
-
 #endif
