@@ -12,33 +12,44 @@ char **tokenizar(char *s1)
 	int count = 0, i = 0, j = 0;
 
 	dup = strdup(s1);
+	if (!dup)
+	{
+		perror("Error! memory not allocated.");
+		exit(EXIT_FAILURE);
+	}
 	token = strtok(dup, delim);
-	while ((token = strtok(NULL, delim)))
+	while (token)
 	{
 		count++;
+	       	token = strtok(NULL, delim);
 	}
+	free(dup);
 	array = malloc(sizeof(char *) * (count + 1));
-	if (array == NULL)
+	if (!array)
+	{
+		perror("Error! memory not allocated.");
+		exit(EXIT_FAILURE);
+	}
+	dup = strdup(s1);
+	if (!dup)
 	{
 		perror("Error! memory not allocated.");
 		free(array);
-		exit(-1);
+		exit(EXIT_FAILURE);
 	}
-	free(dup);
-	dup = strdup(s1);
 	token = strtok(dup, delim);
 	while (token)
 	{
 		array[i] = strdup(token);
 		if (!array[i])
 		{
-			for (j = 0; j > i; j++)
+			for (j = 0; j < i; j++)
 			{
-				free(array[count]);
-				free(dup);
-				free(array);
-				return (NULL);
+				free(array[j]);
 			}
+			free(array);
+			free(dup);
+			exit(EXIT_FAILURE);
 		}
 		i++;
 		token = strtok(NULL, delim);

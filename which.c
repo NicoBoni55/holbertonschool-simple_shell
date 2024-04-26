@@ -18,5 +18,6 @@ int main(void)
 		printf("%s\n", token);
 		token += 1;
 	}
+	free(dup);
 	return (0);
 }

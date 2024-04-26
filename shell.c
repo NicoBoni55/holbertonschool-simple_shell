@@ -18,28 +18,34 @@ int main(void)
 		{
 			printf("$shellatina ");
 		}
-		if (getline(&shell, &size, stdin) == -1)
+		if (getline(&shell, &size, stdin) == - 1)
 		{
-			return (0);
 			free(shell);
+			exit(EXIT_SUCCESS);
 		}
 		shell[strlen(shell) - 1] = '\0';
 		arr = tokenizar(shell);
-
 		if (strcmp(shell, "exit") == 0)
 		{
-			return (0);
 			free(shell);
+			free(arr);
+			exit (EXIT_SUCCESS);
 		}
 		pid = fork();
 		if (pid == -1)
+		{
 			perror("Error: ");
-
+			free(shell);
+			free(arr);
+			exit(EXIT_FAILURE);
+		}
 		if (pid == 0)
 		{
 			execve(arr[0], arr, environ);
+			free(arr);
 		}
 		wait(&pid);
+		free(arr);
 	}
 	free(shell);
 	return (0);
